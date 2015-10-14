@@ -170,6 +170,11 @@ namespace ks
             return m_list[index];
         }
 
+        T const & Get(IndexT index) const
+        {
+            return m_list[index];
+        }
+
         IndexT GetCount() const
         {
             return m_count;
@@ -181,6 +186,11 @@ namespace ks
         }
 
         T& operator[] (IndexT index)
+        {
+            return m_list[index];
+        }
+
+        T const & operator[] (IndexT index) const
         {
             return m_list[index];
         }

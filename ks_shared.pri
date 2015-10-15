@@ -17,6 +17,8 @@ HEADERS += \
     $${PATH_KS_SHARED}/KsRangeAllocator.hpp \
     $${PATH_KS_SHARED}/KsGraph.hpp \
     $${PATH_KS_SHARED}/KsThreadPool.hpp \
+    $${PATH_KS_SHARED}/KsImageBase.hpp \
+    $${PATH_KS_SHARED}/KsImagePNG.hpp \
     $${PATH_KS_SHARED}/KsImage.hpp
 
 SOURCES += \

@@ -682,6 +682,9 @@ namespace ks
         u8 channel_count;
 
         bool is_int_type;
+
+        // ie. RGB888 --> true since all channels are 8 bits
+        //     RGB565 --> false since channels have diff bitdepths
         bool single_bitdepth;
 
         u8 bits_r;
@@ -695,12 +698,14 @@ namespace ks
     {
         ImageData() :
             // can't initialize unique_ptr<void> w/o deleter
+            width(0),
+            height(0),
             list_pixels(nullptr,[](void*){}),
             data_ptr(nullptr)
         {}
 
-        u32 width;
-        u32 height;
+        uint width;
+        uint height;
         PixelTraits pixel_traits;
 
         // <Image.data, Image.data.deleter>

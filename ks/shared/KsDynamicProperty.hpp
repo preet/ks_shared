@@ -126,7 +126,12 @@ namespace ks
             clearOutputs();
         }
 
-        T const &Get()
+        // Generally Get() shouldn't be used to modify the returned
+        // reference, as this won't trigger any evaluation of dependent
+        // properties or notifications. A non-const reference is
+        // returned in the rare cases where the property value should
+        // be changed without any dynamic updates.
+        T &Get()
         {
             captureAsInput();
             return m_value;

@@ -192,6 +192,11 @@ namespace ks
             empty = (range.block->used_count == 0);
         }
 
+        void ClearAllRanges()
+        {
+            m_list_blocks.clear();
+        }
+
     private:
         static void listAvailOrderedInsert(std::vector<Range> &list_avail,
                                            Range const &range)

@@ -26,6 +26,7 @@ namespace ks
         m_timer(make_object<Timer>(evloop)),
         m_active(false),
         m_interval_ms(interval_ms),
+        m_repeating(true),
         m_callback(callback)
     {
 
@@ -42,6 +43,11 @@ namespace ks
     CallbackTimer::~CallbackTimer()
     {
 
+    }
+
+    void CallbackTimer::SetRepeating(bool repeating)
+    {
+        m_repeating = repeating;
     }
 
     void CallbackTimer::SetInterval(std::chrono::milliseconds interval_ms)
@@ -64,7 +70,9 @@ namespace ks
     void CallbackTimer::onTimeout()
     {
         if(m_active) {
-            m_timer->Start(m_interval_ms,false);
+            if(m_repeating) {
+                m_timer->Start(m_interval_ms,false);
+            }
             m_callback();
         }
     }

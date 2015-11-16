@@ -34,6 +34,7 @@ namespace ks
 
         ~CallbackTimer();
 
+        void SetRepeating(bool repeating);
         void SetInterval(std::chrono::milliseconds interval_ms);
         void Start();
         void Stop();
@@ -45,6 +46,7 @@ namespace ks
 
         bool m_active;
         std::chrono::milliseconds m_interval_ms;
+        bool m_repeating;
         std::function<void()> m_callback;
     };
 }

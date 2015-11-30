@@ -136,17 +136,20 @@ namespace ks
         return m_name;
     }
 
-    std::vector<DynamicPropertyBase*> const & DynamicPropertyBase::GetInputs() const
+    std::vector<DynamicPropertyBase*> const &
+    DynamicPropertyBase::GetInputs() const
     {
         return m_list_inputs;
     }
-    std::vector<DynamicPropertyBase*> const & DynamicPropertyBase::GetOutputs() const
+    std::vector<DynamicPropertyBase*> const &
+    DynamicPropertyBase::GetOutputs() const
     {
         return m_list_outputs;
     }
 
-    void DynamicPropertyBase::RemoveProperty(std::vector<DynamicPropertyBase*> &list_props,
-                                      DynamicPropertyBase* rem_prop)
+    void DynamicPropertyBase::RemoveProperty(
+            std::vector<DynamicPropertyBase*> &list_props,
+            DynamicPropertyBase* rem_prop)
     {
         list_props.erase(
                     std::remove_if(
@@ -158,8 +161,9 @@ namespace ks
                     list_props.end());
     }
 
-    void DynamicPropertyBase::TopologicalSort(DynamicPropertyBase* property,
-                                       std::vector<DynamicPropertyBase*> &list_rev_sorted_props)
+    void DynamicPropertyBase::TopologicalSort(
+            DynamicPropertyBase* property,
+            std::vector<DynamicPropertyBase*> &list_rev_sorted_props)
     {
         // mark visited
         property->m_vx_state = 1;

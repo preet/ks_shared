@@ -8,6 +8,8 @@ require_glm {
     include($${PATH_KS_SHARED}/thirdparty/glm/glm.pri)
 }
 
+include($${PATH_KS_SHARED}/thirdparty/lodepng/lodepng.pri)
+
 HEADERS += \
     $${PATH_KS_SHARED}/KsProperty.hpp \
     $${PATH_KS_SHARED}/KsDeferredProperty.hpp \
@@ -19,9 +21,12 @@ HEADERS += \
     $${PATH_KS_SHARED}/KsThreadPool.hpp \
     $${PATH_KS_SHARED}/KsImageBase.hpp \
     $${PATH_KS_SHARED}/KsImagePNG.hpp \
-    $${PATH_KS_SHARED}/KsImage.hpp
+    $${PATH_KS_SHARED}/KsImage.hpp \
+    $${PATH_KS_SHARED}/KsBinPackShelf.hpp
+
 
 SOURCES += \
     $${PATH_KS_SHARED}/KsDynamicProperty.cpp \
     $${PATH_KS_SHARED}/KsCallbackTimer.cpp \
-    $${PATH_KS_SHARED}/KsThreadPool.cpp
+    $${PATH_KS_SHARED}/KsThreadPool.cpp \
+    $${PATH_KS_SHARED}/KsBinPackShelf.cpp

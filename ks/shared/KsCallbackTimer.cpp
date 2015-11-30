@@ -35,9 +35,10 @@ namespace ks
     void CallbackTimer::Init(ks::Object::Key const &,
                              shared_ptr<CallbackTimer> const &this_callback_timer)
     {
-        this_callback_timer->m_timer->signal_timeout.Connect(
+        m_timer->signal_timeout.Connect(
                     this_callback_timer,
-                    &CallbackTimer::onTimeout);
+                    &CallbackTimer::onTimeout,
+                    ConnectionType::Direct);
     }
 
     CallbackTimer::~CallbackTimer()
@@ -50,7 +51,7 @@ namespace ks
         m_repeating = repeating;
     }
 
-    void CallbackTimer::SetInterval(std::chrono::milliseconds interval_ms)
+    void CallbackTimer::SetInterval(milliseconds interval_ms)
     {
         m_interval_ms = interval_ms;
     }
@@ -58,7 +59,7 @@ namespace ks
     void CallbackTimer::Start()
     {
         m_active = true;
-        m_timer->Start(m_interval_ms,false);
+        m_timer->Start(m_interval_ms,m_repeating);
     }
 
     void CallbackTimer::Stop()
@@ -70,9 +71,6 @@ namespace ks
     void CallbackTimer::onTimeout()
     {
         if(m_active) {
-            if(m_repeating) {
-                m_timer->Start(m_interval_ms,false);
-            }
             m_callback();
         }
     }

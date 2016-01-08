@@ -20,7 +20,7 @@ namespace ks
 {
     CallbackTimer::CallbackTimer(ks::Object::Key const &key,
                                  shared_ptr<EventLoop> const &evloop,
-                                 std::chrono::milliseconds interval_ms,
+                                 Milliseconds interval_ms,
                                  std::function<void()> callback) :
         ks::Object(key,evloop),
         m_timer(make_object<Timer>(evloop)),
@@ -51,7 +51,7 @@ namespace ks
         m_repeating = repeating;
     }
 
-    void CallbackTimer::SetInterval(milliseconds interval_ms)
+    void CallbackTimer::SetInterval(Milliseconds interval_ms)
     {
         m_interval_ms = interval_ms;
     }

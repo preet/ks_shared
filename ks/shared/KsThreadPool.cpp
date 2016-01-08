@@ -65,7 +65,7 @@ namespace ks
     }
 
     ThreadPool::Task::WaitStatus
-    ThreadPool::Task::WaitFor(std::chrono::milliseconds wait_ms)
+    ThreadPool::Task::WaitFor(Milliseconds wait_ms)
     {
         // We assume that m_future is valid since we set
         // it during construction and never call get() on it

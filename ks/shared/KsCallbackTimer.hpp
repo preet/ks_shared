@@ -26,7 +26,7 @@ namespace ks
     public:
         CallbackTimer(ks::Object::Key const &key,
                       shared_ptr<EventLoop> const &evloop,
-                      milliseconds interval_ms,
+                      Milliseconds interval_ms,
                       std::function<void()> callback);
 
         void Init(ks::Object::Key const &,
@@ -35,7 +35,7 @@ namespace ks
         ~CallbackTimer();
 
         void SetRepeating(bool repeating);
-        void SetInterval(milliseconds interval_ms);
+        void SetInterval(Milliseconds interval_ms);
         void Start();
         void Stop();
 
@@ -45,7 +45,7 @@ namespace ks
         shared_ptr<Timer> const m_timer;
 
         bool m_active;
-        milliseconds m_interval_ms;
+        Milliseconds m_interval_ms;
         bool m_repeating;
         std::function<void()> m_callback;
     };

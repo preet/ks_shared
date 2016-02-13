@@ -40,7 +40,7 @@ namespace ks
     class RangeAllocator
     {
         static_assert(std::is_integral<IndexT>::value,
-                      "ERROR: ks: RecycleIndexList: "
+                      "ERROR: ks: RangeAllocator: "
                       "IndexT must be an integral type");
 
     public:

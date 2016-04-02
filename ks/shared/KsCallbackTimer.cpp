@@ -23,7 +23,7 @@ namespace ks
                                  Milliseconds interval_ms,
                                  std::function<void()> callback) :
         ks::Object(key,evloop),
-        m_timer(make_object<Timer>(evloop)),
+        m_timer(MakeObject<Timer>(evloop)),
         m_active(false),
         m_interval_ms(interval_ms),
         m_repeating(true),

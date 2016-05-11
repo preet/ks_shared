@@ -29,14 +29,12 @@ namespace ks
         uint y;     // top
         uint width;
         uint height;
-        bool flipped;
 
         BinPackRectangle() :
             x(0),
             y(0),
             width(0),
-            height(0),
-            flipped(false)
+            height(0)
         {}
     };
 
